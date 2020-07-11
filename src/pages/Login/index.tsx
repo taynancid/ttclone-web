@@ -12,9 +12,7 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <Header openModal={toggleModal} />
       <LoginForm />
-      <h1>oi</h1>
     </>
   );
 }

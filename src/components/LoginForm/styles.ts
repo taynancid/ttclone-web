@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
 export const LoginContainer = styled.div`
-  background: #C5C;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background: '#15212B';
+`;
+
+
+export const LoginFormContainer = styled.div`
+  
 `;

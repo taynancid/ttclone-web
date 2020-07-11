@@ -1,21 +1,16 @@
 import React from 'react';
 
-import { LoginContainer } from './styles';
+import { LoginContainer, LoginFormContainer } from './styles';
 
-const Login: React.FC = () => {
+const LoginForm: React.FC = () => {
 
-    return (
-        <LoginContainer> 
-            <button
-            type="button"
-            onClick={() => {
-              /* TODO OPEN MODAL */
-            }}
-          >
-            <div className="text">Novo Prato</div>
-           </button>
-        </LoginContainer>
-    );
+  return (
+    <LoginContainer>
+      {/* <LoginFormContainer>
+        <button />
+      </LoginFormContainer> */}
+    </LoginContainer>
+  );
 }
 
-export default Login;
+export default LoginForm;
