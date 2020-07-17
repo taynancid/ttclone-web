@@ -5,17 +5,17 @@ import {
 } from '../../styles/icons';
 
 import Button from '../../components/Button';
+import Input from '../../components/Input';
 
 export const Container = styled.div`
   height: 100%;
   max-width: 600px;
   margin: 20px auto;
-  padding: 10px 15px;
+  padding: 0px 15px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid var(--twitter);
 
   > h1 {
     font-size: 23px;
@@ -25,10 +25,9 @@ export const Container = styled.div`
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  
+  justify-content: space-around;
   width: 100%;
-  padding: 10px 15px;
+  height: 150px;
 `;
 
 export const BirdIcon = styled(KiwiBird)`
