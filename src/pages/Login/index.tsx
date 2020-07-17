@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import Header from '../../components/Header';
-import LoginForm from '../../components/LoginForm';
+import Input from '../../components/Input';
+
+import {Container, InputWrapper, BirdIcon, SubmitButton } from './styles';
 
 const Login: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -11,9 +12,17 @@ const Login: React.FC = () => {
   }
 
   return (
-    <>
-      <LoginForm />
-    </>
+      <Container>
+        <BirdIcon />
+        <h1>Enter on ttClone</h1>
+        {/* <InputWrapper> */}
+          <Input />
+          <Input />
+          <SubmitButton>
+            Enter
+          </SubmitButton>
+        {/* </InputWrapper> */}
+      </Container>
   );
 }
 

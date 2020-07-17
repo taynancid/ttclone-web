@@ -8,11 +8,10 @@ import Layout from './components/Layout';
 
 const App: React.FC = () => (
   <>
-    <Layout />
     <GlobalStyle />
-    {/* <Router>
+    <Router>
       <Routes />
-    </Router> */}
+    </Router>
   </>
 );
 

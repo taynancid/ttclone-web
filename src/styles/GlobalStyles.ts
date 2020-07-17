@@ -24,9 +24,9 @@ export default createGlobalStyle`
   }
 
   :root {
-    --primary: #000;
-    --secondary: #15181C;
-    --search: #202327;
+    --primary: #15212B;
+    --secondary: #192834;
+    --search: #192834;
     --white: #D9D9D9;
     --gray: #7A7A7A;
     --outline: #2F3336;
