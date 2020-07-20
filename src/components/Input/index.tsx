@@ -12,7 +12,7 @@ const Input: React.FC<Props> = ({ placeholder, onTextChange }) => {
     <Container>
       <InputBody>
         <span>{placeholder}</span>
-        <input type='text' />
+        <input type='text' onChange={(e) => onTextChange(e.target.value)}/>
       </InputBody>
     </Container>
   );
