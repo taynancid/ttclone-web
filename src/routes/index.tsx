@@ -5,17 +5,15 @@ import { RootState } from '../store';
 
 import Login from '../pages/Login';
 import Home from '../pages/Home';
+import ProtectedRouter from './ProtectedRouter';
 
 const Routes: React.FC = () => {
   const { logged } = useSelector((state: RootState) => state.auth);
 
   return (
     <Switch>
-      {!logged ? (
-        <Route path="/" exact component={Login} />
-      ) : (
-        <Route path="/home" exact component={Home} />
-      )}
+      <Route path="/login" exact component={Login} />
+      <ProtectedRouter path="/" exact component={Home} />
     </Switch>
   );
 };

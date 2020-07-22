@@ -1,25 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { RootState } from '../../store';
 
-import Input from '../../components/Input';
+
+
 import { Container, InputWrapper, BirdIcon, SubmitButton } from './styles';
 import api from '../../services/api';
+import Input from '../../components/Input';
+import { logIn } from '../../store/auth/actions';
 
 const Login: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const state = useSelector((state: RootState) => state);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-  function toggleModal(): void {
-    setModalOpen(!modalOpen);
-  }
 
   async function login(): Promise<void> {
-    const { data } = await api.post('login', {
-      email,
-      password,
-    });
-
-    console.log(data);
+    try {
+      const { data } = await api.post('login', {
+        email,
+        password,
+      });
+      
+      dispatch(logIn());
+      history.push('/');
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return (
@@ -28,12 +38,9 @@ const Login: React.FC = () => {
       <h1>Enter on ttClone</h1>
       <InputWrapper>
         <Input placeholder="E-mail" onTextChange={setEmail} />
-        <Input
-          placeholder="Password"
-          onTextChange={setPassword}
-        />
+        <Input placeholder="Password" onTextChange={setPassword} />
       </InputWrapper>
-      <SubmitButton onClick={login}>Enter</SubmitButton>
+      <SubmitButton onClick={() => login()}>Enter</SubmitButton>
     </Container>
   );
 };
