@@ -3,10 +3,12 @@ export const LOGOUT = 'LOGOUT'
 
 export interface AuthState {
   logged: boolean,
+  token: string,
 };
 
 interface LoginAction {
-  type: typeof LOGIN
+  type: typeof LOGIN,
+  payload: string,
 }
 
 interface LogoutAction {

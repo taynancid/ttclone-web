@@ -6,7 +6,7 @@ import { RootState } from '../store';
 export interface Props {
   component: React.FC;
   path: string;
-  exact: boolean;
+  exact?: boolean;
 }
 
 const ProtectedRouter: React.FC<Props> = ({

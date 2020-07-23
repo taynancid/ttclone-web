@@ -13,7 +13,7 @@ const Routes: React.FC = () => {
   return (
     <Switch>
       <Route path="/login" exact component={Login} />
-      <ProtectedRouter path="/" exact component={Home} />
+      <ProtectedRouter path="/" component={Home} />
     </Switch>
   );
 };

@@ -2,6 +2,7 @@ import { AuthState, AuthActionTypes, LOGIN, LOGOUT } from './types'
 
 const initialState: AuthState = {
   logged: false,
+  token: '',
 }
 
 export function authReducer(
@@ -13,12 +14,14 @@ export function authReducer(
       return {
         ...state,
         logged: true,
+        token: action.payload,
       }
     }
     case LOGOUT: {
       return {
         ...state,
         logged: false,
+        token: '',
       }
     }
     default:

@@ -13,9 +13,18 @@ import { logIn } from '../../store/auth/actions';
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const state = useSelector((state: RootState) => state);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      dispatch(logIn(foundUser.access_token.token));
+      history.push('/');
+    }
+  }, [history]);
 
 
   async function login(): Promise<void> {
@@ -25,7 +34,9 @@ const Login: React.FC = () => {
         password,
       });
       
-      dispatch(logIn());
+      
+      localStorage.setItem('user', JSON.stringify(data));
+      dispatch(logIn(data.access_token.token));
       history.push('/');
     } catch (e) {
       console.log(e);

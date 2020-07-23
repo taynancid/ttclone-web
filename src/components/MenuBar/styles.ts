@@ -61,7 +61,7 @@ export const MenuButton = styled.button`
     padding: 10px 15px;
   }
 
-  padding: 8.25px 0;
+  padding: 8.25px;
   outline: 0;
 
   & + button {
@@ -89,7 +89,7 @@ export const MenuButton = styled.button`
   }
 
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: 50px;
 
   &:hover {
     background: var(--twitter-dark-hover);
@@ -111,6 +111,7 @@ const iconCSS = css`
   width: 30px;
   height: 30px;
   color: var(--white);
+  background: transparent
 `;
 
 export const HomeIcon = styled(Home)`
