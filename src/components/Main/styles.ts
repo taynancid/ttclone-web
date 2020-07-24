@@ -13,7 +13,6 @@ export const Container = styled.div`
 
   width: min(601px, 100%);
 
-  background: var(--twitter);
 
   @media (min-width: 500px) {
     border-left: 1px solid var(--gray);

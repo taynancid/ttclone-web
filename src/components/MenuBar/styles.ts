@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { Home, Person } from '../../styles/icons';
+import { Home, Person, Feather } from '../../styles/icons';
 
 export const Container = styled.div`
   display: none;
@@ -74,6 +74,10 @@ export const MenuButton = styled.button`
     width: 40px;
     height: 40px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     > span {
       display: none;
 
@@ -119,4 +123,16 @@ export const HomeIcon = styled(Home)`
 `;
 export const ProfileIcon = styled(Person)`
   ${iconCSS}
+`;
+export const FeatherIcon = styled(Feather)`
+  flex-shrink: 0;
+
+  width: 20px;
+  height: 20px;
+  color: var(--white);
+  background: transparent;
+
+  @media (min-width: 1280px) {
+    display: none;      
+  }
 `;

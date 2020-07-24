@@ -10,6 +10,7 @@ import {
   MenuButton,
   HomeIcon,
   ProfileIcon,
+  FeatherIcon,
 } from './styles';
 
 const MenuBar: React.FC = () => {
@@ -34,8 +35,8 @@ const MenuBar: React.FC = () => {
           <ProfileIcon />
           <span>Perfil</span>
         </MenuButton>
-
         <Button>
+          <FeatherIcon />
           <span>Tweetar</span>
         </Button>
       </TopSide>
