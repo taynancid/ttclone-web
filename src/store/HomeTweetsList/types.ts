@@ -22,7 +22,7 @@ interface Tweet {
   replies_to_id: Number
 }
 
-interface TweetDetails {
+export interface TweetDetails {
   id: Number,
   user_id: Number,
   text: String,
@@ -36,7 +36,7 @@ interface TweetDetails {
 }
 
 export interface HomeTweetsListState {
-  token: String,
+  homeTweetsListLoading: Boolean,
   tweetsList: Array<TweetDetails>
 };
 
@@ -45,9 +45,9 @@ interface FetchHomeTweetsListAction {
   payload: Array<TweetDetails>,
 }
 
-export interface SetHomeTweetsListLoading {
+interface SetHomeTweetsListLoadingAction {
   type: typeof SET_HOME_TWEETS_LIST_LOADING,
   payload: boolean
 }
 
-export type HomeTweetsListActionTypes = FetchHomeTweetsListAction;
+export type HomeTweetsListActionTypes = FetchHomeTweetsListAction | SetHomeTweetsListLoadingAction;

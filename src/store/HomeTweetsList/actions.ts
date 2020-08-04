@@ -1,31 +1,36 @@
-import { FETCH_HOME_TWEETS_LIST } from './types'
-import { ThunkAction, ThunkDispatch } from 'redux-thunk'
+import { FETCH_HOME_TWEETS_LIST, SET_HOME_TWEETS_LIST_LOADING, TweetDetails } from './types';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import api from '../../services/api';
 
-
-
-export const fetchHomeTweetsList = (accessToken : string) => ({
-  type: FETCH_HOME_TWEETS_LIST,
-  payload: accessToken,
+const homeListLoading = (isLoading: boolean) => ({
+  type: SET_HOME_TWEETS_LIST_LOADING,
+  payload: isLoading,
 });
 
-// export const fetchtweetslist = (userId: Number): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
-//   return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
-//     return new Promise<void>((resolve) => {
-//       dispatch(isFetching(true))
-//       console.log('Login in progress')
-// setTimeout(() => {
-//         dispatch(set('this_is_access_token'))
-// setTimeout(() => {
-//           dispatch(isFetching(false))
-//           console.log('Login done')
-//           resolve()
-//         }, 1000)
-// }, 3000)
-//     })
-//   }
-// }
+const setHomeListTweets = (tweetsList: Array<TweetDetails>) => ({
+  type: FETCH_HOME_TWEETS_LIST,
+  payload: tweetsList,
+});
+
+export const fetchHomeTweetslist = (
+  userId: Number
+): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
+  return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+    return new Promise<void>(async (resolve) => {
+      dispatch(homeListLoading(true));
+      try {
+        const { data } = await api.get('tweets');
+
+        dispatch(setHomeListTweets(data));
+        dispatch(homeListLoading(false));
+      } catch (e) {
+        console.log('hello');
+      }
+    });
+  };
+};
 
 export default {
-  fetchHomeTweetsList,
+  fetchHomeTweetslist,
 };

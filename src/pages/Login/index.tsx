@@ -21,10 +21,11 @@ const Login: React.FC = () => {
     
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
+      localStorage.setItem('@ttclone:token', foundUser.access_token.token);
       dispatch(logIn(foundUser.access_token.token));
       history.push('/');
     }
-  }, [history]);
+  }, [dispatch, history]);
 
 
   async function login(): Promise<void> {
